@@ -12,7 +12,9 @@ Universal
 	color: dimgray;
 }
 
-
+body {
+	background-color: #F5F3EE;
+}
 
 /*===============
 
@@ -20,16 +22,34 @@ General
 
 ================*/
 
-video {
+#video-player {
 	width: 100%;
 	max-width: 977px;
 	height: auto;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 50px;
+
 }
 
-#textwrapper {
+video {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+#videocontrols {
+	width: 100%;
+	margin: -52.5px auto 0;
+	background-color: black;
+	opacity: 0.3;
+	padding: 15px 0;
+}
+
+
+
+#transcript {
 	width: 90%;
 	/* I want to prevent the text from being hard for the eyes to read, with to long lines - using a max-width*/
 	max-width: 890px;
@@ -40,9 +60,6 @@ video {
 span {
 	color: #ffa500;
 }
-
-
-
 
 
 

@@ -10,15 +10,26 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-		
-
-		<video controls>
+	<div id="video-player">	
+        <!-- While this id="video" might seem redundant, I needed it to enable the video.pause function. (won't work using tagname) -->
+		<video id="video">
 			<source src="video/video.mp4" type="video/mp4">
 			<source src="video/video.ogg" type="video/ogg">
 			<track label="subtitles" srclang="en" kind="subtitles" src="video/captions.vtt">
 		</video>
 
-	<div id="textwrapper">
+		<div id="videocontrols">
+		    <!-- Same button will be used for playing and pausing -->
+
+			<button id="play" ></button>
+			<p><span id="currentTime"></span> / <span id="totalTime"></span></p>
+			<input id="progressbar" type="range" min="0" max="100" value="0" step="1">
+
+		</div>	
+
+	</div>
+
+	<div id="transcript">
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum, velit in varius interdum, justo lorem tempus nisl, sit amet malesuada est quam quis dui. <span>Maecenas feugiat auctor maximus. Vestibulum quam libero, tempus sit amet pulvinar quis, aliquam quis odio. Phasellus sed leo commodo, tincidunt risus id, rhoncus est. </span> Aliquam varius diam et eros convallis pretium. Ut ac pellentesque ex. Sed pellentesque elit sit amet orci porttitor, et auctor nisi ultricies.</p>
 
@@ -31,6 +42,6 @@
 		<p>Maecenas ultrices elit non justo porttitor, at imperdiet nulla faucibus. Fusce finibus faucibus tortor in tristique. Nullam non orci nec odio porttitor viverra. Pellentesque sit amet mauris et quam facilisis ornare. Quisque eu ultrices ex. Donec euismod sagittis odio, a euismod lectus placerat non. Ut ac eros sodales, sagittis ligula eget, condimentum orci.</p>
 
 
-	</div>
+	</div>	
 </body>
 </html>
