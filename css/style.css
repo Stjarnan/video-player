@@ -20,6 +20,15 @@ General
 
 ================*/
 
+video {
+	width: 100%;
+	max-width: 977px;
+	height: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #textwrapper {
 	width: 90%;
 	/* I want to prevent the text from being hard for the eyes to read, with to long lines - using a max-width*/
@@ -31,3 +40,11 @@ General
 span {
 	color: #ffa500;
 }
+
+
+
+
+
+
+
+
