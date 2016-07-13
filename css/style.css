@@ -1,0 +1,29 @@
+/*===============
+
+Universal
+
+================*/
+
+
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.47;
+	color: dimgray;
+}
+
+
+
+/*===============
+
+General
+
+================*/
+
+#textwrapper {
+	width: 90%;
+	/* I want to prevent the text from being hard for the eyes to read, with to long lines - using a max-width*/
+	max-width: 890px;
+	margin-right: auto;
+	margin-left: auto;
+}
