@@ -30,7 +30,6 @@ General
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 50px;
-
 }
 
 video {
@@ -41,12 +40,78 @@ video {
 
 #videocontrols {
 	width: 100%;
-	margin: -52.5px auto 0;
-	background-color: black;
-	opacity: 0.3;
-	padding: 15px 0;
+	margin: -65px auto 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: relative;
+	z-index: 2;
+	padding: 10px 0 0;
 }
 
+#play,
+#progressBar,
+#videocontrols p,
+#videocontrols span,
+#volumeControl  {
+	display: inline-block;
+}
+
+#play,
+#fullscreen,
+#volumeControl {
+	border:none;
+    width: 22px;
+    height: 26px;
+    cursor:pointer;
+    outline: none;
+    background-size: cover;     
+    background-position: center;
+}
+
+#play {
+	background:url(../icons/play-icon.png);
+	margin-left: 20px;
+}
+
+#progressbar {
+	width: 100%;
+	float: left;
+	margin-top: -65px;
+	-webkit-appearance: none;
+	background-color: #ffa500;
+	height: 3px;
+}
+
+#volumeControl {
+	background: url(../icons/volume-on-icon.png);
+	float: right;
+	margin-right: 60px;
+	margin-top: -40px;
+	background-repeat: no-repeat;
+}
+
+#volumeRange {
+	width: 10%;
+	background: #ffa500;
+}
+
+#currentTime {
+	margin-left: 15px;
+}
+
+#totalTime,
+#currentTime {
+	font-size: 13px;
+	color: white;
+}
+
+#fullscreen {
+	float: right;
+	margin-right: 20px;
+	margin-top: -40px;
+	background: url(../icons/fullscreen-icon.png);
+	background-repeat: no-repeat;
+
+}
 
 
 #transcript {
