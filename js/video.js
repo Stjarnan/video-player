@@ -2,8 +2,21 @@
 var playPausebtn, video, progressbar, curTime, totTime, volumeControl, volumeRange, fullscreen, videoPlayer, forward10, rewind10, CC, progressMeter, bufferMeter;
 
 
-// Video functions
+ $("#video-player").mouseleave(function(){
+ 	$(".buttons").hide();
+ 	$("#videocontrols").css("margin-top", "50px")
+ 	$("#videocontrols").css("background-color", "rgba(0, 0, 0, 0)");
+ 	$("#videocontrols").css("height", "10px")
+ });
 
+
+ $("#video-player").mouseenter(function(){
+ 	$(".buttons").show();
+ 	$("#videocontrols").show("fast");
+ 	$("#videocontrols").css("margin-top", "-65px");
+ 	$("#videocontrols").css("background-color", "rgba(0, 0, 0, 0.6)");
+ 	$("#videocontrols").css("height", "55px")
+ });
 
 	// Function for the progressbar
 function progress() {
@@ -68,6 +81,11 @@ function progresSlide(){
 
 
 }
+
+$("span").click(function() {
+	var goToTranscript = $(this).attr("data-start");
+	video.currentTime = goToTranscript;
+});
 	
 	// Mute/unmute video when clicking the volume-icon
 function mute(){
@@ -142,6 +160,55 @@ function forward() {
 }
 
 
+
+	// Make the transcript color based on current location in the video, making it easy for a user to read along. 
+function transcript() {
+	function addTranscriptClass(time){
+		$('span[data-start]').removeClass("transcriptActive");
+		$('span[data-start="' + time + '"]').addClass("transcriptActive");
+	}
+
+	if(video.currentTime >= 0 && video.currentTime < 4.13 ){
+		addTranscriptClass(0);
+	} else if(video.currentTime > 4.13 && video.currentTime < 7.535) {
+		addTranscriptClass(4.13);
+	} else if(video.currentTime > 7.535 && video.currentTime < 11.27) {
+		addTranscriptClass(7.535);
+	} else if(video.currentTime > 11.27 && video.currentTime < 13.96){
+		addTranscriptClass(11.27);
+	} else if(video.currentTime > 13.96 && video.currentTime < 17.94) {
+		addTranscriptClass(13.96);
+	} else if(video.currentTime >17.94 && video.currentTime < 22.37) {
+		addTranscriptClass(17.94);
+	} else if(video.currentTime > 22.37 && video.currentTime < 26.88){
+		addTranscriptClass(22.37);
+	} else if(video.currentTime > 26.88 && video.currentTime < 30.92) {
+		addTranscriptClass(26.88);
+	} else if(video.currentTime > 30.92 && video.currentTime < 34.73) {
+		addTranscriptClass(32.1);
+	} else if(video.currentTime > 34.73 && video.currentTime < 39.43){
+		addTranscriptClass(34.73);
+	} else if(video.currentTime > 39.43 && video.currentTime < 41.19){
+		addTranscriptClass(39.43)
+	} else if(video.currentTime > 41.19 && video.currentTime < 46.3) {
+		addTranscriptClass(41.19);
+	} else if(video.currentTime > 46.3 && video.currentTime < 49.27) {
+		addTranscriptClass(46.3);
+	} else if(video.currentTime > 49.27 && video.currentTime < 53.76) {
+		addTranscriptClass(49.27);
+	} else if(video.currentTime > 53.76 && video.currentTime < 57.78){
+		addTranscriptClass(53.76);
+	} else if(video.currentTime > 57.78) {
+		addTranscriptClass(57.78);
+	}
+}
+
+
+
+
+
+
+
 // Bind the html to the JavaScript
 
 
@@ -164,6 +231,7 @@ function loadPlayer() {
 
 	// Add eventlisteners for the buttons in the video controlbar
 	video.addEventListener("timeupdate", progress);
+	video.addEventListener("timeupdate", transcript);
 	playPausebtn.addEventListener("click", playPause);
 	progressbar.addEventListener("change", progresSlide);
 	volumeControl.addEventListener("click", mute);
@@ -173,6 +241,7 @@ function loadPlayer() {
 	rewind10.addEventListener("click", rewind);
 	volumeControl.addEventListener("mouseenter", volSliderShow);
 	CC.addEventListener("click", subtitles);
+
 
 
 

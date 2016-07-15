@@ -80,7 +80,7 @@ video {
 	float: left;
 	margin-top: -65px;
 	-webkit-appearance: none;
-	height: 3px;
+	height: 4px;
 	outline: none;
 	background-color: rgba(0,	0, 0, 0.4);
 }
@@ -97,10 +97,11 @@ video {
 
 #volumeRange {
 	width: 10%;
-	background: #ffa500;
 	float: right;
 	margin-right: 85px;
 	margin-top: -32.5px;
+	appearance: none;
+	-moz-appearance: none;
 	-webkit-appearance: none;
 	background-color: #ffa500;
 	height: 5px;
@@ -162,9 +163,10 @@ video {
 	max-width: 890px;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: 50px;
 }
 
-span {
+.transcriptActive {
 	color: #ffa500;
 }
 
@@ -173,7 +175,7 @@ span {
 	background-color: #faa500;
 	float: left;
 	margin-top: -65px;
-	height: 3px;
+	height: 4px;
 }
 
 
@@ -182,9 +184,20 @@ span {
 	background-color: rgba(201, 201, 201, 0.3);
 	float: left;
 	margin-top: -65px;
-	height: 3px;
+	height: 4px;
 }
 
+#progressbar::-moz-range-thumb {
+  visibility: hidden;
+}
+
+#progressbar::-webkit-slider-thumb {
+	visibility: hidden;
+}
+
+#progressbar::-ms-thumb {
+	visibility: hidden;
+}
 
 
 
