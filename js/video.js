@@ -4,9 +4,9 @@ var playPausebtn, video, progressbar, curTime, totTime, volumeControl, volumeRan
 
  $("#video-player").mouseleave(function(){
  	$(".buttons").hide();
- 	$("#videocontrols").css("margin-top", "50px")
+ 	$("#videocontrols").css("margin-top", "50px");
  	$("#videocontrols").css("background-color", "rgba(0, 0, 0, 0)");
- 	$("#videocontrols").css("height", "10px")
+ 	$("#videocontrols").css("height", "10px");
  });
 
 
@@ -15,7 +15,7 @@ var playPausebtn, video, progressbar, curTime, totTime, volumeControl, volumeRan
  	$("#videocontrols").show("fast");
  	$("#videocontrols").css("margin-top", "-65px");
  	$("#videocontrols").css("background-color", "rgba(0, 0, 0, 0.6)");
- 	$("#videocontrols").css("height", "55px")
+ 	$("#videocontrols").css("height", "55px");
  });
 
 	// Function for the progressbar
@@ -114,7 +114,7 @@ function volumeChange() {
 	// enter fullscreen when clicking the button
 function goFullscreen(){
 	if(videoPlayer.requestFullscreen){
-		videoPlayer.requestFullscreen()
+		videoPlayer.requestFullscreen();
 		videoPlayer.style.maxWidth = "none";
 			} 
 	else if (videoPlayer.webkitRequestFullscreen) {
@@ -189,7 +189,7 @@ function transcript() {
 	} else if(video.currentTime > 34.73 && video.currentTime < 39.43){
 		addTranscriptClass(34.73);
 	} else if(video.currentTime > 39.43 && video.currentTime < 41.19){
-		addTranscriptClass(39.43)
+		addTranscriptClass(39.43);
 	} else if(video.currentTime > 41.19 && video.currentTime < 46.3) {
 		addTranscriptClass(41.19);
 	} else if(video.currentTime > 46.3 && video.currentTime < 49.27) {
