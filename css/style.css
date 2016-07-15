@@ -57,11 +57,14 @@ video {
 
 #play,
 #fullscreen,
-#volumeControl {
-	border:none;
+#volumeControl,
+#rewind10,
+#forward10,
+#CC {
+	border: none;
     width: 22px;
     height: 26px;
-    cursor:pointer;
+    cursor: pointer;
     outline: none;
     background-size: cover;     
     background-position: center;
@@ -77,8 +80,9 @@ video {
 	float: left;
 	margin-top: -65px;
 	-webkit-appearance: none;
-	background-color: #ffa500;
 	height: 3px;
+	outline: none;
+	background-color: rgba(0,	0, 0, 0.4);
 }
 
 #volumeControl {
@@ -89,19 +93,57 @@ video {
 	background-repeat: no-repeat;
 }
 
+
+
 #volumeRange {
 	width: 10%;
 	background: #ffa500;
+	float: right;
+	margin-right: 85px;
+	margin-top: -32.5px;
+	-webkit-appearance: none;
+	background-color: #ffa500;
+	height: 5px;
+	border-radius: 3px;
+	display: none;
+	outline: none;
+	padding: 0;
 }
 
+
 #currentTime {
-	margin-left: 15px;
+	margin-left: 35px;
 }
 
 #totalTime,
 #currentTime {
 	font-size: 13px;
 	color: white;
+}
+
+
+/* Had to repeat myself a lot here.. but everything broke when I tried to DRY it up a bit.. so will have to get back here later! to "perfect" */
+
+#rewind10 {
+	background: url(../icons/rewind.png);
+	background-size: cover;
+	height: 30px;
+	width: 25px;
+	margin-left: 30px;
+}
+
+#forward10 {
+	background: url(../icons/forward.png);
+	background-size: cover;
+	height: 30px;
+	width: 25px;
+}
+
+#CC {
+	background: url(../icons/caption.png);
+	background-size: cover;
+	height: 30px;
+	width: 25px;
 }
 
 #fullscreen {
@@ -126,6 +168,22 @@ span {
 	color: #ffa500;
 }
 
+#progressMeter {
+	width: 0%;
+	background-color: #faa500;
+	float: left;
+	margin-top: -65px;
+	height: 3px;
+}
+
+
+#bufferMeter {
+	width: 0%;
+	background-color: rgba(201, 201, 201, 0.3);
+	float: left;
+	margin-top: -65px;
+	height: 3px;
+}
 
 
 

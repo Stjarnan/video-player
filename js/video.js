@@ -1,5 +1,5 @@
 
-var playPausebtn, video, progressbar, curTime, totTime, volumeControl, volumeRange, fullscreen, videoPlayer, forward10, rewind10;
+var playPausebtn, video, progressbar, curTime, totTime, volumeControl, volumeRange, fullscreen, videoPlayer, forward10, rewind10, CC, progressMeter, bufferMeter;
 
 
 // Video functions
@@ -32,6 +32,18 @@ function progress() {
  	curTime.innerHTML = currentMin + ":" + currentSec;
  	totTime.innerHTML = totalMin + ":" + totalSec;
 
+ 	// progress of the video will be showed in orange
+ 	var totalBuffered = video.buffered.end(video.buffered.length - 1);
+ 	var duration =  video.duration;
+    if (duration > 0) {
+      progressMeter.style.width = ((video.currentTime / duration)*100) + "%";
+    }
+
+    // How much how the video has been buffered
+    if (duration > 0) {
+    	bufferMeter.style.width = ((totalBuffered / duration)*100) + "%";
+    }
+
 }
 	
 	// Function for the play/pause button
@@ -52,6 +64,9 @@ function playPause() {
 function progresSlide(){
 	var goTo = video.duration * (progressbar.value / 100);
 	video.currentTime = goTo;
+
+
+
 }
 	
 	// Mute/unmute video when clicking the volume-icon
@@ -94,6 +109,28 @@ function goFullscreen(){
 	}
 }	
 
+
+	// Show volumeslider on volumeControl hover, and hide again if mouse leave
+
+function volSliderShow() {
+	volumeRange.style.display = 'inline-block';
+
+	volumeRange.addEventListener("mouseout", function(){
+		setTimeout(function() {
+  			volumeRange.style.display = "none";
+		}, 500);
+	});	
+}	
+
+function subtitles() {
+	if(video.textTracks[0].mode = "hidden") {
+		video.textTracks[0].mode = "visible";
+	} else {
+		video.textTracks[0].mode = "hidden";
+	}
+}
+
+
 	// rewind 10 seconds
 function rewind() {
 	video.currentTime -= 10 ; 
@@ -121,6 +158,9 @@ function loadPlayer() {
 	videoPlayer = document.getElementById("video-player");
 	forward10 = document.getElementById("forward10");
 	rewind10 = document.getElementById("rewind10");
+	CC = document.getElementById("CC");
+	progressMeter = document.getElementById("progressMeter");
+	bufferMeter = document.getElementById("bufferMeter");
 
 	// Add eventlisteners for the buttons in the video controlbar
 	video.addEventListener("timeupdate", progress);
@@ -131,6 +171,10 @@ function loadPlayer() {
 	fullscreen.addEventListener("click", goFullscreen);
 	forward10.addEventListener("click", forward);
 	rewind10.addEventListener("click", rewind);
+	volumeControl.addEventListener("mouseenter", volSliderShow);
+	CC.addEventListener("click", subtitles);
+
+
 
 }
 
